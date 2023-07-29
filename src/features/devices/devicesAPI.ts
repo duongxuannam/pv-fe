@@ -1,6 +1,6 @@
 
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { baseURL } from '../../utils/apiRequest'
+import { axiosBaseQuery, baseURL } from '../../utils/apiRequest'
 
 export const fetchDevices = async () => {
   try {
@@ -17,11 +17,9 @@ export const fetchDevices = async () => {
 
 export const devicesApi = createApi({
   reducerPath: 'devicesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: baseURL }),
+  baseQuery: axiosBaseQuery({ baseUrl: baseURL, }),
   endpoints: (builder) => ({
-    getDevices: builder.query<Device[], void | null>({
-      query: () => `devices`,
-    }),
+    getDevices: builder.query<Device[], void | any>({ query: () => ({ url: 'devices', method: 'get' }) })
   }),
 })
 

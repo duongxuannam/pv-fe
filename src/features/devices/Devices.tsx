@@ -4,12 +4,11 @@ import { useGetDevicesQuery } from "./devicesAPI"
 function Devices() {
     const isWindowFocused = useWindowFocus()
     const { data, error, isLoading, refetch } = useGetDevicesQuery(null, {
-        pollingInterval: 3000, skip: !isWindowFocused
+        pollingInterval: 3000, skip: !isWindowFocused,
     })
 
     return (
         <>
-
             <div className="flex justify-end mt-10 mr-10">
                 <button
                     onClick={refetch}
@@ -19,7 +18,7 @@ function Devices() {
             </div>
             <div className="m-10">
 
-                <div className="grid  gap-5 2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+                <div className="grid gap-5 2 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4" >
                     {
                         isLoading && (
                             Array(8).fill(1).map((item, index) => {
@@ -37,7 +36,7 @@ function Devices() {
                             const date = new Date(item.last_update)
 
                             return (
-                                <div key={item.id} className="p-5 m-1 border-solid border-2 border-indigo-600 flex flex-col items-start gap-1">
+                                <div key={item.id} className="rounded-md shadow-lg ring-1 p-5 m-1 border-solid border border-zinc-500 flex flex-col items-start gap-1 ">
                                     <span className="block">
                                         <b>ID:</b>  {item.id}
                                     </span>

@@ -6,8 +6,8 @@ const url =
 
 function App() {
   return (
-    <div>
-      <header className="h-16 bg-red-400  flex justify-end items-center " >
+    <div className="min-w-[375px]">
+      <header className="h-16 bg-sky-500  flex justify-end items-center " >
         <h1 className="text-lg font-bold underline text-zinc-950">
           Hello world!
         </h1>
