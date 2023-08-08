@@ -1,6 +1,5 @@
 import React from "react"
 import { Device as DeviceType } from "../../features/devices/type"
-import { useAppSelector } from "../../app/hooks"
 
 interface Props extends Partial<DeviceType> {
   date: Date
@@ -14,8 +13,6 @@ const Device = ({
   current_temperature,
   date,
 }: Props) => {
-  const role = useAppSelector(selectUserRole())
-  role
   return (
     <div
       key={id}
@@ -30,11 +27,9 @@ const Device = ({
       <span data-testid="location">
         <b>Location:</b> {location}
       </span>
-      {role.admin && (
-        <span data-testid="status">
-          <b>Status:</b> {status}
-        </span>
-      )}
+      <span data-testid="status">
+        <b>Status:</b> {status}
+      </span>
       <span>
         <b>Temperature:</b>{" "}
         <span

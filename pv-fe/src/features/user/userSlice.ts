@@ -110,7 +110,6 @@ export const selectUserId = (state: RootState) => state.user.id
 export const selectUserName = (state: RootState) => state.user.name
 export const selectUserTitle = (state: RootState) => state.user.title
 
-export const selectUserRole = (state: RootState) => state.user.role
 // export const selectUser = (state: RootState): User => ({
 //   id: state.user.id,
 //   name: state.user.name,
